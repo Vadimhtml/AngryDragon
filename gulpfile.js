@@ -65,26 +65,31 @@ gulp.task('pug', wrapPipe(function (success, error) {
         .pipe(gulp.dest(destination_path));
 }));
 
+
 gulp.task('js', wrapPipe(function (success, error) {
     return gulp.src(source_path + 'js/*.js')
         .pipe(gulpUglify().on('error', error))
         .pipe(gulp.dest(destination_path));
 }));
 
+
 gulp.task('vendor', wrapPipe(function (success, error) {
     return gulp.src(source_path + 'vendor/*.js')
         .pipe(gulp.dest(destination_path));
 }));
+
 
 gulp.task('fonts', wrapPipe(function (success, error) {
     return gulp.src(source_path + 'fonts/*.{ttf,woff}')
         .pipe(gulp.dest(destination_path));
 }));
 
+
 gulp.task('images', wrapPipe(function (success, error) {
     return gulp.src(source_path + 'images/*.{png,jpg,gif,svg}')
         .pipe(gulp.dest(destination_path));
 }));
+
 
 gulp.task('reload', wrapPipe(function (success, error) {
     browserSync.reload();
