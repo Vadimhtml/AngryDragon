@@ -22,9 +22,12 @@ body
     overflow auto
     text-align center
 
+
   &__Container
     min-height 100%
     position relative
+    overflow hidden
+
 
   &__Form
     width (893px / 2)
@@ -37,6 +40,7 @@ body
     position relative
     z-index $Auth__Form__z
 
+
   &__Shuttle
     width (984px / 2)
     height (552px / 2)
@@ -48,6 +52,10 @@ body
     left 0
     bottom 0
     z-index ($Auth__Form__z - 1)
+
+    @media screen and (max-height: 1030px) and (max-width: 1310px)
+      display none
+
 
   &__Dragon
     width (481px / 2)
