@@ -21,6 +21,8 @@ var browserSync = require('browser-sync').create();
 var gulpSequence = require('gulp-sequence');
 var gulpUglify = require('gulp-uglify');
 var gulpCleanCss = require('gulp-clean-css');
+var gulpPostcss = require('gulp-postcss');
+var postcssHardScaling = require('postcss-hard-scaling')
 
 var source_path = './src/';
 var destination_path = './docs/';
@@ -50,11 +52,18 @@ gulp.task('default', ['styl', 'pug', 'js', 'vendor', 'fonts', 'images'], functio
 
 gulp.task('styl', wrapPipe(function (success, error) {
     return gulp.src(source_path + 'styl/*.styl')
-         .pipe(gulpStylus().on('error', error))
-         .pipe(gulpMyth({compress: true}).on('error', error))
-         .pipe(gulpCleanCss({
-             level: 2
-         }).on('error', error))
+        .pipe(gulpStylus().on('error', error))
+        .pipe(gulpPostcss([
+            postcssHardScaling({
+                layout: 2,
+                interface: 1,
+                log: false
+            })
+        ]).on('error', error))
+        .pipe(gulpMyth({compress: true}).on('error', error))
+        .pipe(gulpCleanCss({
+            level: 2
+        }).on('error', error))
         .pipe(gulp.dest(destination_path));
 }));
 
