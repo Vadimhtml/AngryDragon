@@ -72,14 +72,13 @@ body
 
 
   &__Form
-    // background red
     text-align center
     margin 574ptr 152ptr 0 154ptr
     padding 0
 
 
   &__Button
-    padding 0
+    padding 0 20ptr
     margin 0 auto
     border 0
     outline 0
@@ -90,6 +89,12 @@ body
     background-repeat no-repeat
     background-size cover
     font-family inherit
+    font-size 40ptr
+    line-height 42ptr
+    color #fff
+    text-decoration none
+    box-sizing border-box
+    cursor pointer
 
     &_register
       height 196ptr
@@ -98,3 +103,22 @@ body
     &_start
       height 150ptr
       background-image url("Auth__Button_start.png")
+
+      &::before
+        content ''
+        display inline-block
+        height 100%
+        width 0
+        vertical-align middle
+
+
+  &__Valigner
+    display inline-block
+    vertical-align middle
+
+
+  &__Message
+    padding 0
+    margin 38ptr 0 0
+    font-size 34ptr
+    color #fff

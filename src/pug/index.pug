@@ -13,7 +13,16 @@ html
                     .Auth__Dragon
                     form.Auth__Form
                         button.Auth__Button.Auth__Button_register Регистрация
-                        button.Auth__Button.Auth__Button_start Играть без регистрации
-                        p.Auth__Message Без регистрации, ваша запись будет уничтожена через 24ч
+                        a(href="#").Auth__Button.Auth__Button_start
+                            span.Auth__Valigner
+                                | Играть
+                                br
+                                | без регистрации
+                        p.Auth__Message
+                            | Без регистрации,
+                            br
+                            | ваша запись будет
+                            br
+                            | уничтожена через 24ч
                 .Auth__Shuttle
-        script(src="index.js")
+        #script(src="index.js")
