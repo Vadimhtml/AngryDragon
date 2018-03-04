@@ -4,15 +4,48 @@ body
   margin 0
   border 0
   outline 0
-  min-height 100%
 
 .Auth
 
-  &__Body
-    font-family Lato, sans-serif
+  $Auth__Form__z = 100
+
+  &__Overlay
+    position fixed
+    top 0
+    left 0
+    right 0
+    bottom 0
     background-image url("Auth__Background.png")
     background-position center
     background-repeat no-repeat
     background-size cover
+    overflow auto
+    text-align center
 
+  &__Container
+    min-height 100%
+    position relative
 
+  &__Form
+    width (893px / 2)
+    height (1434px / 2)
+    background-image url("Auth__FormBackground.png")
+    background-position 0
+    background-repeat no-repeat
+    background-size cover
+    display inline-block
+    position relative
+    z-index $Auth__Form__z
+    margin-bottom 50%
+
+  &__Shuttle
+    width (984px / 2)
+    height (552px / 2)
+    background-image url("Auth__Shuttle.png")
+    background-position 0
+    background-repeat no-repeat
+    background-size cover
+    position absolute
+    left 0
+    bottom 0
+    z-index ($Auth__Form__z - 1)
